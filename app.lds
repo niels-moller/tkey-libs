@@ -20,23 +20,23 @@ SECTIONS
 
 	.text :
 	{
-		. = ALIGN(4);
+		. = ALIGN(8);
 		*(.text)           /* .text sections (code) */
 		*(.text*)          /* .text* sections (code) */
 		*(.rodata)         /* .rodata sections (constants, strings, etc.) */
 		*(.rodata*)        /* .rodata* sections (constants, strings, etc.) */
 		*(.srodata)        /* .rodata sections (constants, strings, etc.) */
 		*(.srodata*)       /* .rodata* sections (constants, strings, etc.) */
-		. = ALIGN(4);
+		. = ALIGN(8);
 		_etext = .;
 		_sidata = _etext;
 	} >RAM
 
 	.data : AT (_etext)
 	{
-		. = ALIGN(4);
+		. = ALIGN(8);
 		_sdata = .;
-		. = ALIGN(4);
+		. = ALIGN(8);
 		*(.data)           /* .data sections */
 		*(.data*)          /* .data* sections */
 		*(.sdata)          /* .sdata sections */
@@ -48,7 +48,7 @@ SECTIONS
 	/* Uninitialized data section */
 	.bss :
 	{
-		. = ALIGN(4);
+		. = ALIGN(8);
 		_sbss = .;
 		*(.bss)
 		*(.bss*)
@@ -56,7 +56,7 @@ SECTIONS
 		*(.sbss*)
 		*(COMMON)
 
-		. = ALIGN(4);
+		. = ALIGN(8);
 		_ebss = .;
 	} >RAM
 
